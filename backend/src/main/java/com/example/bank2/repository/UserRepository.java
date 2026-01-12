@@ -1,0 +1,16 @@
+package com.example.bank2.repository;
+
+import com.example.bank2.entity.User;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import java.util.Optional;
+
+@Repository
+public interface UserRepository extends JpaRepository<User, Integer> {
+    Optional<User> findByLogin(String login);
+    Optional<User> findByPassport(String passport);
+    boolean existsByLogin(String login);
+    boolean existsByPassport(String passport);
+}
+
